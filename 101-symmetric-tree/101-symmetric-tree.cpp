@@ -11,56 +11,14 @@
  */
 class Solution {
 public:
+    bool check(TreeNode* a, TreeNode*b)
+    {
+        if(!a and b)return 0;
+        if(!b and a)return 0;
+        if(!a and !b)return 1;
+        return a->val==b->val and check(a->left,b->right) and check(a->right,b->left);
+    }
     bool isSymmetric(TreeNode* root) {
-        stack<TreeNode*>st;
-        st.push(root->left);
-        vector<int>vec,dec;
-        if(root->left)vec.push_back(root->left->val);
-        else vec.push_back(0);
-        while(!st.empty() and st.top())
-        {
-            TreeNode* d = st.top();
-            st.pop();
-            if(d->left)
-            {
-                vec.push_back(d->left->val);
-                st.push(d->left);
-            }
-            else vec.push_back(0);
-            if(d->right)
-            {
-                vec.push_back(d->right->val);
-                st.push(d->right);
-            }
-            else vec.push_back(0);
-        }
-        st.push(root->right);
-        if(root->right)dec.push_back(root->right->val);
-        else dec.push_back(0);
-        while(!st.empty() and st.top())
-        {
-            TreeNode* d = st.top();
-            st.pop();
-            if(d->right)
-            {
-                dec.push_back(d->right->val);
-                st.push(d->right);
-            }
-            else dec.push_back(0);
-            if(d->left)
-            {
-                dec.push_back(d->left->val);
-                st.push(d->left);
-            }
-            else dec.push_back(0);
-        }
-        // cout<<vec.size()<<" "<<dec.size()<<endl;
-        if(vec.size()!=dec.size())return 0;
-        for(int i=0;i<vec.size();i++)
-        {
-            if(vec[i]!=dec[i])return 0;
-            // cout<<vec[i]<<" "<<dec[i]<<endl;
-        }
-        return 1;
+      return check(root->left,root->right);
     }
 };
