@@ -1,7 +1,7 @@
 class Solution {
 public:
     int totalFruit(vector<int>& f) {
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         int res=0,i=0,j=0;
         while(j<f.size())
         {
