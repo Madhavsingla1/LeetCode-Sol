@@ -13,7 +13,7 @@ public:
             while(j-i+1-maxcount>k)
                 mp[s[i++]]--;
             
-            res = max(j-i,res);
+            res = max(j-i+1,res);
             j++;
         }
         res = max(j-i,res);
