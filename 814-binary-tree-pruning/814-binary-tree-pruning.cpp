@@ -13,7 +13,7 @@ class Solution {
 public:
     bool solve(TreeNode* root)
     {
-        if(!root)return NULL;
+        if(!root)return false;
         if(!root->left and !root->right)
         {
             if(root->val==0)return false;
@@ -27,6 +27,5 @@ public:
     
     TreeNode* pruneTree(TreeNode* root) {
         return solve(root)?root:NULL;
-        
     }
 };
