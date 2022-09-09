@@ -1,5 +1,9 @@
 class Solution {
 public:
+    int gcd(int x,int y)
+    {
+        return x==0?y:gcd(y%x,x);
+    }
     bool hasGroupsSizeX(vector<int>& deck) 
     {
         vector<int>count(1e4+3,0);
@@ -14,9 +18,10 @@ public:
                 if(g==-1)
                     g=count[i];
                 else 
-                    g=__gcd(g,count[i]);
+                    g=gcd(g,count[i]);
             }
         }
         return g>=2;
     }
+    
 };
