@@ -4,7 +4,7 @@ public:
     {
         if(cha.size()&1)return {};
         sort(cha.begin(),cha.end());
-        map<int,int>mp;
+        unordered_map<int,int>mp;
         for(auto i:cha)
             mp[i]++;
         
